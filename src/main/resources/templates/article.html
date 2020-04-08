@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>Article Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type ="text/css" th:href="@{/css/all.css}" href="../../css/all.css">
+    <link rel="stylesheet" type ="text/css" th:href="@{/css/aos.css}" href="../../css/aos.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/articlestyle.css}" href = "../../css/articlestyle.css">
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<!--Had to do this-->
+<nav class="nav2">
+    <div class="nav-menu2 flex-row2">
+        <div class="nav-brand2">
+            <a th:href="@{/home}" class="text-gray">Prabhat</a>
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icons">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-items2">
+                <li class="nav-link2">
+                    <a th:href="@{/home}">Home</a>
+                </li>
+                <li class="nav-link2" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/search}">Search</a>
+                </li>
+                <li class="nav-link2">
+                    <a href="https://prabhatsharma.netlify.com">Resume</a>
+                </li>
+                <li class="nav-link2" sec:authorize="hasAuthority('ADMIN')">
+                    <a th:href="@{/admin/newPost}">New Post</a>
+                </li>
+                <li class="nav-link2" sec:authorize="hasAuthority('ADMIN')">
+                    <a th:href="@{/admin/settings}">Settings</a>
+                </li>
+                <li class="nav-link" sec:authorize="hasAuthority('ADMIN')">
+                    <a th:href="@{/admin/newPop}">New Pop</a>
+                </li>
+                <li class="nav-link2" sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-link2" sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/registration}">Register</a>
+                </li>
+                <li class="nav-link2" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}">Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="social text-gray">
+            <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/prabhat_pcs"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.github.com/PCS0725"><i class="fab fa-github"></i></a>
+            <a href="https://www.github.com/PCS0725"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</nav>
+
+<!-- -------*Nav Bar Ends Here* --------->
+</div>
+
+<div class="container">
+    <h1 id = "title" th:text="${article.title}">My First Bootstrap Page</h1>
+    <h4 id = "subHead"  th:text="${article.category}">Categories, Date</h4>
+    <h6 id = "subSubHead" th:text="${article.author}">Author,read time</h6>
+	<br>
+    <div id = "content" th:utext="${article.content}"></div>
+    <br><br>
+    <div sec:authorize="hasAuthority('ADMIN')" >
+        <div class="row">
+            <a th:href="@{'/admin/editPost/{id}'(id=${article.id})}" class="col-md-2">
+                <button type="button" class="btn btn-primary btn-block" th:text="Edit">Edit</button>
+            </a>
+
+        </div>
+    </div>
+
+<!--Comments section-->
+<h3 id ="title2">Comments</h3>
+<br><br>
+<div th:each="comment : ${article.comments}">
+    <div class="card card-body bg-light" >
+        <h6 id = "subSubHead" th:text="${comment.commentor.name}">Categories, Date</h6>
+        <p style = "text-align: justify;" th:text="${comment.content}">Here goes the first Article. I had been watching <strong>netflix</strong>
+            for quite a while now and what I feel is that it is a <code>huge</code> waste of time.
+            Except for 2 or 3 good shows there, others are a complete shit.</p>
+    </div>
+</div>
+    <br><br>
+<div sec:authorize="isAuthenticated()">
+    <div class="row">
+        <a th:href="@{'/createComment/{id}'(id=${article.id})}" class="col-md-2">
+            <button type="button" class="btn btn-primary btn-block" th:text="Comment">Comment</button>
+        </a>
+    </div>
+</div>
+</div>
+<!-- /.container -->
+
+<!-- Custom Javascript file -->
+<script>
+    $(document).ready(function () {
+
+        $nav = $('.nav2');
+        $toggleCollapse = $('.toggle-collapse');
+
+        /** click event on toggle menu */
+        $toggleCollapse.click(function () {
+            $nav.toggleClass('collapse');
+        });
+    });
+
+</script>
+
+</body>
+</html>

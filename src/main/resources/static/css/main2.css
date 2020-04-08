@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: 'Varela Round', sans-serif;
+  background: #f1f1f1;
+  margin: 0px;
+  font-size: 15px;
+ line-height: 1.5;
+}
+
+/* Header/Blog Title */
+.header {
+  background-image: url(../images/LockScreen.jpg);
+  height: 700px;
+  width: 100%;
+  opacity: 0.7;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 40px;
+  text-align: center;
+  /* margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px; */
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 70%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 30%;
+  padding-left: 10px;
+}
+
+/*Article heading*/
+.cardHead{
+  text-align: center;
+  color: dodgerblue;
+}
+
+/*Date styles: spacing, italic, opaque, etc*/
+.date{
+  text-align: right;
+  color: #2a5c9e;
+  font-style: italic;
+}
+
+/*Summary of articles*/
+.summary{ 
+  color: #575353;
+  font-family: 'Indie Flower', cursive;
+}
+
+/*Author  colurful., etc*/
+.author{
+  color: #37608f;
+}
+
+
+/* Fake image */
+.fakeimg {
+  background-color: rgb(135, 221, 243);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../images/LockScreen.jpg");
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin: 20px;
+   /*box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2),0 4px 20px 0 rgba(0,0,0,0.19);*/
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer2 {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin: 20px;
+}
+.tag{
+  background-color: #000;
+  color: #fff;
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: center;
+}
+#navbar {
+  overflow: hidden;
+  background-color: #4980be;
+  opacity: 1;
+  /* margin-right: -10px; */
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: rgb(103, 171, 192);
+  color: black;
+}
+
+#navbar a.active {
+  background-color: rgb(108, 163, 177);
+  color: white;
+}
+
+.content {
+  padding: 5px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}

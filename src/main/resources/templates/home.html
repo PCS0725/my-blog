@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type ="text/css" th:href="@{/css/all.css}" href="../../css/all.css">
+        <link rel="stylesheet" type ="text/css" th:href="@{/css/owl.carousel.min.css}" href="../../css/owl.carousel.min.css">
+        <link rel="stylesheet" type ="text/css" th:href="@{/css/owl.theme.default.min.css}" href="../../css/owl.theme.default.min.css">
+        <link rel="stylesheet" type ="text/css" th:href="@{/css/aos.css}" href="../../css/aos.css">
+        <link rel="stylesheet" type ="text/css" th:href="@{/css/Style.css}" href="../../css/Style.css">
+        <title>Prabhat's Place</title>
+</head>
+
+<body>
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+   <div th:replace="/fragments/header :: header"/>
+
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main>
+
+        <!------------------------ Site Title ---------------------->
+        <div ></div>
+        <section class="site-title">
+            <div class="site-background" th:style="'background:url(' + ${URL} +');background-size: cover;height: 110vh;display: flex;justify-content: center;border-bottom-right-radius: 300px;'" data-aos="fade-up" data-aos-delay="100">
+                <h1 th:text="${QUOTE}">Mile mile sathi, na mile chor</h1>
+				<h1></h1>
+            </div>
+        </section>
+
+        <!------------x----------- Site Title ----------x----------->
+
+        <!-- --------------------- Blog Carousel ----------------- -->
+
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <div class="owl-carousel owl-theme blog-post">
+                            <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                                <img  src="/assets/popular-post/why.jpg" alt="post-1">
+                                <div class="blog-title">
+                                    <h3 th:text="${pops.get(0).getTitle()}">London Fashion week's continued the evolution</h3>
+                                    <a th:href="@{'/pop/' + ${pops.get(0).getId()}}"><button class="btn btn-blog">More</button></a>
+                                    <h6 th:text="${pops.get(0).getReadTime()}"></h6>
+                                </div>
+                            </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img  src="/assets/popular-post/computer.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3 th:text="${pops.get(1).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(1).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h6 th:text="${pops.get(0).getReadTime()}"></h6>
+                            </div>
+                        </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img  src="/assets/popular-post/why.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3 th:text="${pops.get(2).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(2).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h6 th:text="${pops.get(0).getReadTime()}"></h6>
+                            </div>
+                        </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img  src="/assets/popular-post/why.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3 th:text="${pops.get(3).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(3).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h6 th:text="${pops.get(0).getReadTime()}"></h6>
+                            </div>
+                        </div>
+                        <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                            <img  src="/assets/popular-post/why.jpg" alt="post-1">
+                            <div class="blog-title">
+                                <h3 th:text="${pops.get(3).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(3).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h6 th:text="${pops.get(0).getReadTime()}"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="owl-navigation">
+                        <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                        <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ----------x---------- Blog Carousel --------x-------- -->
+
+        <!-- ---------------------- Site Content -------------------------->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200" th:each="post : ${pager.posts}">
+                        <div class="post-image">
+                            <div>
+                                <img th:src="@{${post.imageURL}}" src="/assets/Blog-post/blog2.png" class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray" >&nbsp;&nbsp;</i><span th:text="${post.author}"></span></span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14, 2019</span>
+                                <span th:text="${post.comments.size()}"></span><span>&nbsp;Comments</span>
+								<span th:text="${post.readTime}">5 mins</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a th:href="@{'/article/' + ${post.id}}"><h2 th:text="${post.title}">TITLE HEAD</h2></a>
+                            <p th:text="${post.summary}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque voluptas deserunt beatae
+                                adipisci iusto totam placeat
+                            </p>
+                            <a th:href="@{'/article/' + ${post.id}}"><button class="btn post-btn">Read More &nbsp; <i class="fas fa-arrow-right"></i></button></a>
+                        </div>
+						<hr>
+                    </div>
+                    <div class="pagination flex-row" th:with="baseUrl=${URLparameter}">
+						<span th:if="${pager.indexOutOfBounds()}">
+							Page is out of bounds. Go back to <a class="pageLink" th:href="@{${baseUrl}(page=1)}">Home</a>.
+						</span>
+						<span th:unless="${pager.indexOutOfBounds()}">
+						<span th:if="${pager.hasPrevious()}">
+                            <a th:href="@{${baseUrl}(page=1)}"><i class="fas fa-angle-double-left"></i></a>
+							<a th:href="@{${baseUrl}(page=${pager.getPageIndex() - 1})}"><i class="fas fa-chevron-circle-left"></i></a>
+						</span>
+						<span th:if="${pager.getTotalPages() != 1}">Page&nbsp;
+							<span th:text= "${pager.getPageIndex()}"></span>&nbsp;of&nbsp;<span th:text= "${pager.getTotalPages()}"></span>
+						</span>
+						<span th:if="${pager.hasNext()}">
+							<a th:href="@{${baseUrl}(page=${pager.getPageIndex() + 1})}"><i class="fas fa-chevron-circle-right"></i></a>
+                            <a th:href="@{${baseUrl}(page=${pager.getTotalPages()})}"><i class="fas fa-angle-double-right"></i></a>
+						</span>
+						</span>
+						 <!--<a href="#"><i class="fas fa-chevron-left"></i></a>-->
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2>Categories</h2>
+                        <ul class="category-list">
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                <a th:href="@{${searchURL}(term=Software)}">Software</a>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                                <a th:href="@{${searchURL}(term=Technology)}">Technology</a>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                                <a th:href="@{${searchURL}(term=DSA)}">DSA</a>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                                <a th:href="@{${searchURL}(term=Insights)}">Insights</a>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a th:href="@{${searchURL}(term=CS)}">CS</a>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a th:href="@{${searchURL}(term=Misc)}">Misc</a>
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a th:href="@{${searchURL}(term=Travel)}">Travel</a>
+                            </li>
+                        </ul>
+                    </div>
+<!--                    <div class="popular-tags">-->
+<!--                        <h2>Popular Tags</h2>-->
+<!--                        <div class="tags flex-row">-->
+<!--                            <a th:href="@{${searchURL}(term=Software)}"><span class="tag" data-aos="flip-up" data-aos-delay="100">Software Design</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=Technology)}"><span class="tag" data-aos="flip-up" data-aos-delay="200">Technology</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=Travel)}"><span class="tag" data-aos="flip-up" data-aos-delay="300">Travel</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=DSA)}"><span class="tag" data-aos="flip-up" data-aos-delay="400">DSA</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=CS)}"><span class="tag" data-aos="flip-up" data-aos-delay="500">CS</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=Insights)}"><span class="tag" data-aos="flip-up" data-aos-delay="600">Insights</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=Project)}"><span class="tag" data-aos="flip-up" data-aos-delay="700">Project</span></a>-->
+<!--                            <a th:href="@{${searchURL}(term=Misc)}"><span class="tag" data-aos="flip-up" data-aos-delay="800">Misc</span></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="popular-post">-->
+<!--                        <h2>Pinned Articles</h2>-->
+<!--                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">-->
+<!--                            <div class="post-image">-->
+<!--                                <div>-->
+<!--                                    <img src="./assets/popular-post/m-blog-1.jpg" class="img" alt="blog1">-->
+<!--                                </div>-->
+<!--                                <div class="post-info flex-row">-->
+<!--                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,-->
+<!--                                        2019</span>-->
+<!--                                    <span>2 Commets</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="post-title">-->
+<!--                                <a href="#">New data recording system to better analyse road accidents</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="post-content" data-aos="flip-up" data-aos-delay="300">-->
+<!--                            <div class="post-image">-->
+<!--                                <div>-->
+<!--                                    <img src="./assets/popular-post/m-blog-1.jpg" class="img" alt="blog1">-->
+<!--                                </div>-->
+<!--                                <div class="post-info flex-row">-->
+<!--                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,-->
+<!--                                        2019</span>-->
+<!--                                    <span>2 Commets</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="post-title">-->
+<!--                                <a href="#">New data recording system to better analyse road accidents</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">-->
+<!--                            <div class="post-image">-->
+<!--                                <div>-->
+<!--                                    <img src="./assets/popular-post/m-blog-1.jpg" class="img" alt="blog1">-->
+<!--                                </div>-->
+<!--                                <div class="post-info flex-row">-->
+<!--                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,-->
+<!--                                        2019</span>-->
+<!--                                    <span>2 Commets</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="post-title">-->
+<!--                                <a href="#">New data recording system to better analyse road accidents</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="post-content" data-aos="flip-up" data-aos-delay="500">-->
+<!--                            <div class="post-image">-->
+<!--                                <div>-->
+<!--                                    <img src="./assets/popular-post/m-blog-1.jpg" class="img" alt="blog1">-->
+<!--                                </div>-->
+<!--                                <div class="post-info flex-row">-->
+<!--                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,-->
+<!--                                        2019</span>-->
+<!--                                    <span>2 Commets</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="post-title">-->
+<!--                                <a href="#">New data recording system to better analyse road accidents</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="post-content" data-aos="flip-up" data-aos-delay="600">-->
+<!--                            <div class="post-image">-->
+<!--                                <div>-->
+<!--                                    <img src="./assets/popular-post/m-blog-1.jpg" class="img" alt="blog1">-->
+<!--                                </div>-->
+<!--                                <div class="post-info flex-row">-->
+<!--                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 14,-->
+<!--                                        2019</span>-->
+<!--                                    <span>2 Commets</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="post-title">-->
+<!--                                <a href="#">New data recording system to better analyse road accidents</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="newsletter" data-aos="fade-up" data-aos-delay="300">-->
+<!--                        <h2>Newsletter</h2>-->
+<!--                        <div class="form-element">-->
+<!--                            <input type="text" class="input-element" placeholder="Email">-->
+<!--                            <button class="btn form-btn">Subscribe</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="popular-tags">-->
+<!--                        <h2>Popular Tags</h2>-->
+<!--                        <div class="tags flex-row">-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="100">Software Design</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="200">Technology</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="300">travel</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="400">DSA</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="500">CS</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="600">Insights</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="700">Project</span>-->
+<!--                            <span class="tag" data-aos="flip-up" data-aos-delay="800">Misc</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </aside>
+            </div>
+        </section>
+
+
+        <!-- -----------x---------- Site Content -------------x------------>
+
+    </main>
+
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+
+    <!-- --------------------------- Footer ---------------------------------------- -->
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <!--            <div class="instagram" data-aos="fade-left" data-aos-delay="200">-->
+            <!--                <h2>Instagram</h2>-->
+            <!--                <div class="flex-row">-->
+            <!--                    <img src="./assets/instagram/thumb-card3.png" alt="insta1">-->
+            <!--                    <img src="./assets/instagram/thumb-card4.png" alt="insta2">-->
+            <!--                    <img src="./assets/instagram/thumb-card5.png" alt="insta3">-->
+            <!--                </div>-->
+            <!--                <div class="flex-row">-->
+            <!--                    <img src="./assets/instagram/thumb-card6.png" alt="insta4">-->
+            <!--                    <img src="./assets/instagram/thumb-card7.png" alt="insta5">-->
+            <!--                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                <span sec:authorize="isAuthenticated()">
+                 Logged in as : <span sec:authentication="name"></span>
+                <a th:href="@{/logout}">Sign Out</a>
+            </span>
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+    <!-- -------------x------------- Footer --------------------x------------------- -->
+    <!-- Jquery Library file -->
+    <script src="./js/Jquery3.4.1.min.js"></script>
+
+    <!-- --------- Owl-Carousel js ------------------->
+    <script src="./js/owl.carousel.min.js"></script>
+
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="./js/aos.js"></script>
+
+    <!-- Custom Javascript file -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

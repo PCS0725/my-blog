@@ -1,0 +1,192 @@
+html, body{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root{
+    /*      Theme colors        */
+    --text-gray: #3f4954;
+    --text-light : #686666da;
+    --bg-color: #0f0f0f;
+    --white: #ffffff;
+    --midnight: #104f55;
+
+    /* gradient color   */
+    --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+    /*      theme font-family   */
+    --Abel: 'Abel', cursive;
+    --Anton: 'Anton', cursive;
+    --Josefin : 'Josefin', cursive;
+    --Lexend: 'Lexend', cursive;
+    --Livvic : 'Livvic', cursive;
+}
+
+
+/* ---------------- Global Classes ---------------*/
+
+a{
+    text-decoration: none;
+    color: var(--text-gray);
+}
+
+.flex-row2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ul{
+    list-style-type: none;
+}
+
+
+    .container {
+    padding: 3% 15%;
+    background-color: white;
+    /* opacity: 0.8; */
+   }
+   #title {
+       text-align: center;
+       text-transform: uppercase;
+       color: #4CAF50;
+       font-family: 'PT Sans', sans-serif;
+   }
+   #subHead{
+       color: rgba(236,69,111,0.91);
+       text-align: center;
+       font-family: 'PT Sans', sans-serif;
+   }
+   #subSubHead{
+       color: rgba(65, 90, 236, 0.91);
+       text-align: left;
+       font-family: 'PT Sans', sans-serif;
+   }
+   #title2{
+       text-align: center;
+       font-family: 'PT Sans', sans-serif;
+   }
+   #content{
+       font-size: 18px;
+       text-align: justify;
+       color: #7C7C7C;
+       letter-spacing: 0.4px;
+       word-spacing: 0px;
+       font-weight: 400;
+       text-decoration: none;
+       font-style: normal;
+       font-variant: normal;
+       text-transform: none;
+       font-family: 'PT Sans', sans-serif;
+   }
+   .card{
+       margin-top: 5px;
+   }
+    /*Navbar section*/
+    .nav2{
+       background: white;
+       padding: 0 2rem;
+       height: 0rem;
+       min-height: 10vh;
+       overflow: hidden;
+       transition: height 1s ease-in-out;
+    }
+
+    .nav2 .nav-menu2{
+       justify-content: space-between;
+    }
+
+    .nav2 .toggle-collapse{
+       position: absolute;
+       top: 0%;
+       width: 90%;
+       cursor: pointer;
+       display: none;
+    }
+
+    .nav2 .toggle-collapse .toggle-icons{
+       display: flex;
+       justify-content: flex-end;
+       padding: 1.7rem 0;
+    }
+
+    .nav2 .toggle-collapse .toggle-icons i{
+       font-size: 1.4rem;
+       color: var(--text-gray);
+    }
+
+    .collapse{
+       height: 30rem;
+    }
+    .collapse:not(.show){
+        display: contents;
+    }
+
+    .nav2 .nav-items2{
+       display: flex;
+       margin: 0;
+    }
+
+    .nav2 .nav-items2 .nav-link2{
+       padding: 1.6rem 1rem;
+       font-size: 1.1rem;
+       position: relative;
+       font-family: var(--Abel);
+       font-size: 1.1rem;
+    }
+
+    .nav2 .nav-items2 .nav-link2:hover{
+       background-color: var(--midnight);
+    }
+
+    .nav2 .nav-items2 .nav-link2:hover a{
+       color: var(--white);
+    }
+
+    .nav2 .nav-brand2 a{
+       font-size: 1.6rem;
+       padding: 1rem 0;
+       display: block;
+       font-family: var(--Lexend);
+       font-size: 1.6rem;
+    }
+
+    .nav2 .social{
+       padding: 1.4rem 0
+    }
+
+    .nav2 .social i{
+       padding: 0 .2rem;
+    }
+
+    .nav2 .social i:hover{
+       color: #a1c4cf;
+    }
+
+    @media only screen and (max-width: 750px){
+        .nav2 .nav-menu2, .nav2 .nav-items2{
+            flex-direction: column;
+        }
+
+        .nav2 .toggle-collapse{
+            display: initial;
+        }
+        .nav2 .social{
+            display: none;
+        }
+
+    }
+
+
+    /*        x      Viewport less then or equal to 750px       x     */
+
+
+    /*              Viewport less then or equal to 520px            */
+
+    @media only screen and (max-width: 520px){
+        nav .toggle-collapse{
+            width: 80% !important;
+        }
+
+    }
+

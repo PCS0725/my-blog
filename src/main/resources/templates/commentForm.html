@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type ="text/css" th:href="@{/css/all.css}" href="../../css/all.css">
+    <link rel="stylesheet" type ="text/css" th:href="@{/css/aos.css}" href="../../css/aos.css">
+    <link rel="stylesheet" type ="text/css" th:href="@{/css/Style.css}" href="../../css/Style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:replace="/fragments/header :: header"/>
+
+<div class="container">
+
+    <div class="container">
+
+        <div class="row" style="margin-top:20px">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                <form autocomplete="off" action="#" th:action="@{/createComment}"
+                      th:object="${comment}" method="post" role="form">
+
+                    <h2 class="text-center">Write new comment</h2>
+
+                    <div class="form-group">
+                        <label th:if="${#fields.hasErrors('content')}" th:errors="*{content}"
+                               class="alert alert-danger"></label>
+                        <textarea th:field="*{content}"
+                                  placeholder="Put your comment here" class="form-control input-lg"/>
+                    </div>
+
+                    <input type="hidden" th:field="*{article}"/>
+                    <input type="hidden" th:field="*{commentor}"/>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Comment</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+</body>
+</html>
