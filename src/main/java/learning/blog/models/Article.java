@@ -1,8 +1,6 @@
 package learning.blog.models;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Indexed;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -11,7 +9,6 @@ import java.util.List;
 
 //Indexed tells hibernate search to include this entity in indexing
 //A separate index base is created for each entity.
-@Indexed
 @Entity
 @Table(name = "articles")
 public class Article {
@@ -23,25 +20,21 @@ public class Article {
 
     //Length, NotEmpty are validation constraints. They are reported by hibernate before persisting. We can handle them
     // using bindingResults object.
-    @Field
     @Column(name = "title", nullable = false)
     //@Length is a hibernate constraint and it does not set the bindingResult fields property
     @NotEmpty(message = "*Please provide title")
     private String title;
 
-    @Field
     @Column(name = "summary", columnDefinition = "TEXT")
     private String summary;
 
     @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
-    @Field
     @Column(name = "author",nullable = false)
     @NotEmpty(message = "Mention the author")
     private String author;
 
-    @Field
     @Column(name = "category", nullable = false)
     @NotEmpty(message = "Please specify a category")
     private String category;

@@ -1,6 +1,5 @@
 package learning.blog.models;
 
-import org.hibernate.search.annotations.Field;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
