@@ -421,6 +421,49 @@ main .post-content .post-title a{
 
 
 /* -------x------- Sidebar -----------x----------- */
+/* -------* Article Page style -------* */
+.container1 {
+    padding: 3% 15%;
+    background-color: white;
+    /* opacity: 0.8; */
+}
+#title {
+    text-align: center;
+    text-transform: uppercase;
+    color: #4CAF50;
+    font-family: 'PT Sans', sans-serif;
+}
+#subHead{
+    color: rgba(236,69,111,0.91);
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+}
+#subSubHead{
+    color: rgba(65, 90, 236, 0.91);
+    text-align: left;
+    font-family: 'PT Sans', sans-serif;
+}
+#title2{
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+}
+#content{
+    font-size: 18px;
+    text-align: justify;
+    color: #7C7C7C;
+    letter-spacing: 0.4px;
+    word-spacing: 0px;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-family: 'PT Sans', sans-serif;
+}
+.card{
+    margin-top: 5px;
+}
+/* -----------------Article page---------*/
 
 /* ---------x------- Main Content -----x----- */
 
