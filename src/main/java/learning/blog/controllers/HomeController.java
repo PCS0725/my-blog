@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.security.auth.login.Configuration;
 import java.util.List;
+import java.util.*;
 
 @Controller
 public class HomeController {
@@ -23,6 +24,8 @@ public class HomeController {
 
     @Autowired
     private PopService popService;
+    
+    
 
     @RequestMapping(value = {"/home"," ","/"})
     public String home(@RequestParam(defaultValue = "0") int page,
@@ -42,7 +45,7 @@ public class HomeController {
         model.addAttribute("URL",URL);
         model.addAttribute("QUOTE", QUOTE);
         model.addAttribute("pager", pager);
-
+        
         return "home";
     }
 }

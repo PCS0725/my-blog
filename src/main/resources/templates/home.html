@@ -2,15 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" type ="text/css" th:href="@{/css/all.css}" href="../../css/all.css">
-        <link rel="stylesheet" type ="text/css" th:href="@{/css/owl.carousel.min.css}" href="../../css/owl.carousel.min.css">
-        <link rel="stylesheet" type ="text/css" th:href="@{/css/owl.theme.default.min.css}" href="../../css/owl.theme.default.min.css">
-        <link rel="stylesheet" type ="text/css" th:href="@{/css/aos.css}" href="../../css/aos.css">
-        <link rel="stylesheet" type ="text/css" th:href="@{/css/Style.css}" href="../../css/Style.css">
-        <title>Prabhat's Place</title>
+    <meta charset="UTF-8">
+    <div th:replace="/fragments/header :: header-css"/>
+    <title>Prabhat's Place</title>
 </head>
 
 <body>
@@ -342,16 +336,7 @@
     </footer>
     <!-- -------------x------------- Footer --------------------x------------------- -->
     <!-- Jquery Library file -->
-    <script src="./js/Jquery3.4.1.min.js"></script>
-
-    <!-- --------- Owl-Carousel js ------------------->
-    <script src="./js/owl.carousel.min.js"></script>
-
-    <!-- ------------ AOS js Library  ------------------------- -->
-    <script src="./js/aos.js"></script>
-
-    <!-- Custom Javascript file -->
-    <script src="./js/main.js"></script>
+    <div th:replace="/fragments/footer:: footer"/>
 </body>
 
 </html>
