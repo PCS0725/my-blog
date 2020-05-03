@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type ="text/css" th:href="@{/css/all.css}" href="../../css/all.css">
     <link rel="stylesheet" type ="text/css" th:href="@{/css/owl.carousel.min.css}" href="../../css/owl.carousel.min.css">
     <link rel="stylesheet" type ="text/css" th:href="@{/css/owl.theme.default.min.css}" href="../../css/owl.theme.default.min.css">
@@ -17,7 +18,7 @@
    <nav class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
-                <a href="#" class="text-gray">Prabhat</a>
+                <a class="nava" href="#" >Prabhat</a>
             </div>
             <div class="toggle-collapse">
                 <div class="toggle-icons">
@@ -27,39 +28,41 @@
             <div>
                 <ul class="nav-items">
                     <li class="nav-link">
-                        <a th:href="@{/home}">Home</a>
+                        <a class="nava" th:href="@{/home}">Home</a>
                     </li>
                     <li class="nav-link" sec:authorize="isAuthenticated()">
-                        <a th:href="@{/search}">Search</a>
+                        <a class="nava" th:href="@{/search}">Search</a>
                     </li>
                     <li class="nav-link">
-                        <a href="https://prabhatsharma.netlify.com">Resume</a>
+                        <a class="nava" href="https://prabhatsharma.netlify.com">Resume</a>
                     </li>
 					<li class="nav-link" sec:authorize="hasAuthority('ADMIN')">
-                        <a th:href="@{/admin/newPost}">New Post</a>
+                        <a class="nava" th:href="@{/admin/newPost}">New Post</a>
                     </li>
                     <li class="nav-link" sec:authorize="hasAuthority('ADMIN')">
-                        <a th:href="@{/admin/newPop}">New Pop</a>
+                        <a class="nava" th:href="@{/admin/newPop}">New Pop</a>
                     </li>
                     <li class="nav-link" sec:authorize="hasAuthority('ADMIN')">
-                        <a th:href="@{/admin/settings}">Settings</a>
+                        <a class="nava" th:href="@{/admin/settings}">Settings</a>
                     </li>
                     <li class="nav-link" sec:authorize="!isAuthenticated()">
-                        <a th:href="@{/login}">Login</a>
+                        <a class="nava" th:href="@{/login}">Login</a>
                     </li>
                     <li class="nav-link" sec:authorize="!isAuthenticated()">
-                        <a th:href="@{/registration}">Register</a>
+                        <a class="nava" th:href="@{/registration}">Register</a>
                     </li>
 					<li class="nav-link" sec:authorize="isAuthenticated()">
-                        <a th:href="@{/logout}">Logout</a>
+                        <a class="nava" th:href="@{/logout}">Logout</a>
                     </li>
                 </ul>
             </div>
             <div class="social text-gray">
-                <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/prabhat_pcs"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.github.com/PCS0725"><i class="fab fa-github"></i></a>
-                <a href="https://www.github.com/PCS0725"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/PCS0725"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/prabhat_pcs"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+
+
             </div>
         </div>
     </nav>
