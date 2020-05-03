@@ -15,9 +15,9 @@
 </div>
 
 <div class="container1">
-    <h1 id = "title" th:text="${article.title}">My First Bootstrap Page</h1>
-    <h4 id = "subHead"  th:text="${article.category}">Categories, Date</h4>
-    <h6 id = "subSubHead" th:text="${article.author}">Author,read time</h6>
+    <h1 class = "title" th:text="${article.title}">My First Bootstrap Page</h1>
+    <h4 class = "subHead"  th:text="${article.category}">Categories, Date</h4>
+    <h6 class = "subSubHead" th:text="${article.author}">Author,read time</h6>
 	<br>
     <div id = "content" th:utext="${article.content}"></div>
     <br><br>
@@ -31,12 +31,13 @@
     </div>
 
 <!--Comments section-->
-<h3 id ="title2">Comments</h3>
+    <br><br>
+<h3 class ="title2">Comments</h3>
 <br><br>
 <div th:each="comment : ${article.comments}">
-    <div class="card card-body bg-light" >
-        <h6 id = "subSubHead" th:text="${comment.commentor.name}">Categories, Date</h6>
-        <p style = "text-align: justify;" th:text="${comment.content}">Here goes the first Article. I had been watching <strong>netflix</strong>
+    <div class="card">
+        <h6 class = "subSubHead" th:text="${comment.commentor.name}">Categories, Date</h6>
+        <p class = "commentContent" th:text="${comment.content}">Here goes the first Article. I had been watching <strong>netflix</strong>
             for quite a while now and what I feel is that it is a <code>huge</code> waste of time.
             Except for 2 or 3 good shows there, others are a complete shit.</p>
     </div>
@@ -45,7 +46,7 @@
 <div sec:authorize="isAuthenticated()">
     <div class="row">
         <a th:href="@{'/createComment/{id}'(id=${article.id})}" class="col-md-2">
-            <button type="button" class="btn post-btn" th:text="Comment">Comment</button>
+            <button type="button" class="btn post-btn" th:text="Comment" style="background: var(--sky);">Comment</button>
         </a>
     </div>
 </div>

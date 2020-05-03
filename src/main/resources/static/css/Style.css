@@ -15,7 +15,7 @@ html, body{
     --text-light : #686666da;
     --bg-color: #0f0f0f;
     --white: #ffffff;
-    --midnight: #104f55;
+    --midnight: #ace9f1;
 
     /* gradient color   */
     --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
@@ -33,7 +33,7 @@ html, body{
 
 a{
     text-decoration: none;
-    color: var(--text-gray);
+    color: rgba(26, 26, 26, 0.91);
 }
 
 .flex-row{
@@ -47,12 +47,12 @@ ul{
 }
 
 h1{
-    font-family: var(--Lexend);
+    font-family: 'Roboto', sans-serif;
     font-size: 2.5rem;
 }
 
 h2{
-    font-family: var(--Lexend);
+    font-family: 'Roboto', sans-serif;
 }
 
 h3{
@@ -82,7 +82,7 @@ span{
 }
 
 p{
-    font-family: var(--Lexend);
+    font-family: 'Roboto', sans-serif;
     color: var(--text-light);
 }
 
@@ -91,13 +91,19 @@ p{
 /* --------------- navbar ----------------- */
 
 .nav{
-    background: white;
+    background: #0c0c0c;
     padding: 0 2rem;
     height: 0rem;
     min-height: 10vh;
     overflow: hidden;
     transition: height 1s ease-in-out;
 }
+
+.nava{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.91);
+}
+
 
 .nav .nav-menu{    
     justify-content: space-between;
@@ -119,7 +125,7 @@ p{
 
 .nav .toggle-collapse .toggle-icons i{
     font-size: 1.4rem;
-    color: var(--text-gray);
+    color: honeydew;
 }
 
 .collapse{
@@ -143,11 +149,11 @@ p{
     background-color: var(--midnight);
 }
 
-.nav .nav-items .nav-link:hover a{
-    color: var(--white);
+.nav .nav-items .nav-link:hover .nava{
+    color: #1d1d1d;
 }
 
-.nav .nav-brand a{
+.nav .nav-brand .nava{
     font-size: 1.6rem;
     padding: 1rem 0;
     display: block;
@@ -156,11 +162,13 @@ p{
 }
 
 .nav .social{
-    padding: 1.4rem 0
+    padding: 1.4rem 0;
+    color: rgba(255, 255, 255, 0.91);
 }
 
-.nav .social i{
+.nav .social i {
     padding: 0 .2rem;
+    color: rgba(255, 255, 255, 0.91);
 }
 
 .nav .social i:hover{
@@ -232,6 +240,7 @@ main .blog-post .blog-content{
 
 main .blog-content .blog-title{
     padding: 2rem 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 main .blog-content .btn-blog{
@@ -348,7 +357,7 @@ main .post-content .post-title a{
 /* --------------- Sidebar ----------------------- */
 
 .site-content > .sidebar .category-list{
-    font-family: var(--Livvic);   
+    font-family: var(--Livvic);
 }
 
 .site-content > .sidebar .category-list .list-items{
@@ -427,30 +436,30 @@ main .post-content .post-title a{
     background-color: white;
     /* opacity: 0.8; */
 }
-#title {
+.title {
     text-align: center;
-    text-transform: uppercase;
-    color: #4CAF50;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #2a2828;
 }
-#subHead{
-    color: rgba(236,69,111,0.91);
-    text-align: center;
-    font-family: 'PT Sans', sans-serif;
-}
-#subSubHead{
-    color: rgba(65, 90, 236, 0.91);
-    text-align: left;
-    font-family: 'PT Sans', sans-serif;
-}
-#title2{
+.subHead{
+    color: rgba(69, 136, 236, 0.91);
     text-align: center;
     font-family: 'PT Sans', sans-serif;
 }
-#content{
+.subSubHead{
+    color: rgba(69, 136, 236, 0.91);
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+}
+.title2{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #2a2828;
+}
+.content{
     font-size: 18px;
     text-align: justify;
-    color: #7C7C7C;
+    color: #8d8c8c;
     letter-spacing: 0.4px;
     word-spacing: 0px;
     font-weight: 400;
@@ -461,7 +470,32 @@ main .post-content .post-title a{
     font-family: 'PT Sans', sans-serif;
 }
 .card{
-    margin-top: 5px;
+    margin: 5px;
+    border: 1px solid #d2cece;
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    padding-left : 5px;
+    background: rgba(229, 228, 228, 0.91);
+
+}
+
+.commentContent{
+    font-family: 'PT Sans', sans-serif;
+}
+
+textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.commentbtn {
+    background: var(--sky);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* -----------------Article page---------*/
 

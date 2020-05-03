@@ -50,4 +50,14 @@ public class HomeController {
         
         return "home";
     }
+	@RequestMapping(value = "/search",method = RequestMethod.GET)
+    public String getsearchPage(Model model){
+       //remove it from here once search is implemented properly
+        return "searchForm";
+    }
+	
+    @RequestMapping(value = "/searchCategory",method = RequestMethod.GET)
+    public String executeSearch(@RequestParam String term, Model model){
+        return "searchForm";
+    }
 }

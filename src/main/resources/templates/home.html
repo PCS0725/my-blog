@@ -47,32 +47,32 @@
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
                             <img  src="/assets/popular-post/computer.jpg" alt="post-1">
                             <div class="blog-title">
-                                <h3 th:text="${pops.get(0).getTitle()}">London Fashion week's continued the evolution</h3>
-                                <a th:href="@{'/pop/' + ${pops.get(0).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h3 th:text="${pops.get(1).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(1).getId()}}"><button class="btn btn-blog">More</button></a>
                                 <h6 th:text="${pops.get(0).getReadTime()}"></h6>
                             </div>
                         </div>
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
                             <img  src="/assets/popular-post/why.jpg" alt="post-1">
                             <div class="blog-title">
-                                <h3 th:text="${pops.get(0).getTitle()}">London Fashion week's continued the evolution</h3>
-                                <a th:href="@{'/pop/' + ${pops.get(0).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h3 th:text="${pops.get(2).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(2).getId()}}"><button class="btn btn-blog">More</button></a>
                                 <h6 th:text="${pops.get(0).getReadTime()}"></h6>
                             </div>
                         </div>
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
                             <img  src="/assets/popular-post/why.jpg" alt="post-1">
                             <div class="blog-title">
-                                <h3 th:text="${pops.get(0).getTitle()}">London Fashion week's continued the evolution</h3>
-                                <a th:href="@{'/pop/' + ${pops.get(0).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h3 th:text="${pops.get(3).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(3).getId()}}"><button class="btn btn-blog">More</button></a>
                                 <h6 th:text="${pops.get(0).getReadTime()}"></h6>
                             </div>
                         </div>
                         <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
                             <img  src="/assets/popular-post/why.jpg" alt="post-1">
                             <div class="blog-title">
-                                <h3 th:text="${pops.get(0).getTitle()}">London Fashion week's continued the evolution</h3>
-                                <a th:href="@{'/pop/' + ${pops.get(0).getId()}}"><button class="btn btn-blog">More</button></a>
+                                <h3 th:text="${pops.get(3).getTitle()}">London Fashion week's continued the evolution</h3>
+                                <a th:href="@{'/pop/' + ${pops.get(3).getId()}}"><button class="btn btn-blog">More</button></a>
                                 <h6 th:text="${pops.get(0).getReadTime()}"></h6>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                             <a th:href="@{${baseUrl}(page=${pager.getTotalPages()})}"><i class="fas fa-angle-double-right"></i></a>
 						</span>
 						</span>
-						 <a href="#"><i class="fas fa-chevron-left"></i></a>
+						 <!--<a href="#"><i class="fas fa-chevron-left"></i></a>-->
                     </div>
                 </div>
                 <aside class="sidebar">
@@ -287,15 +287,14 @@
     <footer class="footer">
         <div class="container">
             <div class="about-us" data-aos="fade-right" data-aos-delay="200">
-                <h2>About us</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
-                    iure, autem nulla tenetur repellendus.</p>
+                <h2>About Me</h2>
+                <p>I'll add a separate post on this once the site goes live</p>
             </div>
             <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
                 <h2>Newsletter</h2>
                 <p>Stay update with our latest</p>
                 <div class="form-element">
-                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                    <input type="text" placeholder="Email"><span><a href="mailto:prabhatcs.cs.17@nitj.ac.in" ><i class="fas fa-chevron-right"></i></a></span>
                 </div>
             </div>
             <!--            <div class="instagram" data-aos="fade-left" data-aos-delay="200">-->
@@ -311,16 +310,7 @@
             <!--                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">-->
             <!--                </div>-->
             <!--            </div>-->
-            <div class="follow" data-aos="fade-left" data-aos-delay="200">
-                <h2>Follow us</h2>
-                <p>Let us be Social</p>
-                <div>
-                    <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-youtube"></i>
-                </div>
-            </div>
+
         </div>
         <div class="rights flex-row">
             <h4 class="text-gray">

@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-<!--    <div th:replace="/fragments/header :: header-css"/>-->
+   <div th:replace="/fragments/header :: header-css"/>
 </head>
 <body>
 
-<!--<div th:replace="/fragments/header :: header"/>-->
+<div th:replace="/fragments/header :: header"/>
 <!-- Standard error page for all errors: Use errormessage attribute from wherever you send the redirect to this page
 Include a button to the homepage-->
-<div class="container">
+<div class="container1">
 
     <h1 th:if="${errorMessage}" th:utext="${errorMessage}"></h1>
     <h1 th:if="!${errorMessage}">Oh! that was a bad request</h1>
