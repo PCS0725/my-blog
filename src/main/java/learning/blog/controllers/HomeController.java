@@ -4,6 +4,7 @@ import learning.blog.config.ConfigData;
 import learning.blog.models.Article;
 import learning.blog.models.Pop;
 import learning.blog.service.ArticleService;
+import learning.blog.service.UserService;
 import learning.blog.service.PopService;
 import learning.blog.util.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,8 @@ public class HomeController {
     @Autowired
     private PopService popService;
     
-    
+    @Autowired 
+    private UserService userService;
 
     @RequestMapping(value = {"/home"," ","/"})
     public String home(@RequestParam(defaultValue = "0") int page,
@@ -39,7 +41,7 @@ public class HomeController {
 
         List<Pop> pops =  popService.findAll();
        // System.out.println("Total pops: " + pops.size());
-
+       
         model.addAttribute("pops",pops);
         model.addAttribute("searchURL",searchURL);
         model.addAttribute("URL",URL);

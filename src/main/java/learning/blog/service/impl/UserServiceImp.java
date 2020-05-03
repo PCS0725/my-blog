@@ -23,6 +23,8 @@ public class UserServiceImp implements UserService {
     @Autowired
     private RoleRepository roleRepository;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    
     public UserServiceImp(){
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
     }
@@ -45,7 +47,20 @@ public class UserServiceImp implements UserService {
         user.setComments(holder);
         return userRepository.save(user);
     }
-    public User saveAdmin(User user) {
-        return userRepository.save(user);
-    }
+    // public void saveAdmin() {
+    //     User user = new User();
+    //     user.setPassword(new BCryptPasswordEncoder().encode("hahaha"));
+    //     user.setActive(true);
+    //     user.setEmail("guru@gmail.com");
+    //     Optional<Role> userRole = roleRepository.findById(1L);
+    //     user.setRoles(new HashSet<Role>(Arrays.asList(userRole.get())));
+    //     user.setName("Prabhat");
+    //     user.setLastName("Sharma");
+    //     user.setUsername("guru");
+    //     List<Comment> holder = new ArrayList<>();
+    //     user.setComments(holder);
+    //     User savedUser = save(user);
+    //     System.out.println("Saved user: " + savedUser.getUsername());
+    // }
+    
 }
