@@ -8,5 +8,5 @@ public interface UserService {
     Optional<User> findUserByEmail(String email);
     User save(User user);
 
-    User saveAdmin(User user);
+    //void saveAdmin();
 }
